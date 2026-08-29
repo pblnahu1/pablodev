@@ -7,13 +7,29 @@ export function Navbar() {
 
   return (
     <nav className="topbar">
-      <a className="brand" href="#top" aria-label="Pablo Dev inicio"><span>p</span> pablo.dev</a>
+      <a className="brand" href="#top" aria-label="Pablo Dev inicio">
+        <img src="main-logo.png" alt="Pablo Dev" />
+      </a>
       <div className={`nav-links ${menu.isOpen ? "is-open" : ""}`}>
-        <a href="#work" onClick={closeMenu}>Selected work</a>
-        <a href="#about" onClick={closeMenu}>About</a>
-        <a className="nav-contact" href="mailto:hello@pablo.dev" onClick={closeMenu}>Let's talk <ArrowUpRight size={15} /></a>
+        <a href="#work" onClick={closeMenu}>
+          Selected work
+        </a>
+        <a href="#about" onClick={closeMenu}>
+          About
+        </a>
+        <a
+          className="nav-contact"
+          href="mailto:hello@pablo.dev"
+          onClick={closeMenu}
+        >
+          Let's talk <ArrowUpRight size={15} />
+        </a>
       </div>
-      <button className="icon-button menu-button" aria-label={menu.isOpen ? "Cerrar menú" : "Abrir menú"} onClick={menu.toggle}>
+      <button
+        className="icon-button menu-button"
+        aria-label={menu.isOpen ? "Cerrar menú" : "Abrir menú"}
+        onClick={menu.toggle}
+      >
         {menu.isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
     </nav>
