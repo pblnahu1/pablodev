@@ -1,13 +1,26 @@
-type FilterPillsProps = { options: string[]; activeOption: string; onChange: (option: string) => void };
+interface FilterPillsProps {
+  options: string[];
+  activeOption: string;
+  onChange: (option: string) => void;
+}
 
 export function FilterPills({ options, activeOption, onChange }: FilterPillsProps) {
   return (
-    <div className="filters" aria-label="Filtrar proyectos">
-      {options.map((option) => (
-        <button key={option} className={activeOption === option ? "active" : ""} onClick={() => onChange(option)}>
-          {option}
-        </button>
-      ))}
+    <div className="filters" role="group" aria-label="Filtrar proyectos por categoría">
+      {options.map((option) => {
+        const isActive = activeOption === option;
+        return (
+          <button
+            key={option}
+            type="button"
+            className={isActive ? "active" : ""}
+            aria-pressed={isActive}
+            onClick={() => onChange(option)}
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 }

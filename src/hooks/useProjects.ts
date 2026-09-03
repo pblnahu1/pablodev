@@ -1,12 +1,30 @@
-import { useMemo, useState } from 'react'
-import { projectCategories, projects } from '../data/projects'
+import { useMemo, useState } from 'react';
+import type { IProjectRepository } from '../repositories/projectRepository';
+import { defaultProjectRepository } from '../repositories/projectRepository';
+import type { ProjectSummary } from '../types/project';
 
-export function useProjects() {
-  const [activeCategory, setActiveCategory] = useState('All')
-  const visibleProjects = useMemo(
-    () => activeCategory === 'All' ? projects : projects.filter((project) => project.category === activeCategory),
-    [activeCategory],
-  )
+interface UseProjectsOptions {
+  repository?: IProjectRepository;
+  initialCategory?: string;
+}
 
-  return { projects: visibleProjects, categories: projectCategories, activeCategory, setActiveCategory }
+export function useProjects({
+  repository = defaultProjectRepository,
+  initialCategory = 'All',
+}: UseProjectsOptions = {}) {
+  const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
+
+  const categories = useMemo(() => repository.getCategories(), [repository]);
+
+  const visibleProjects = useMemo<ProjectSummary[]>(() => {
+    return repository.filter({ category: activeCategory });
+  }, [repository, activeCategory]);
+
+  return {
+    projects: visibleProjects,
+    categories,
+    activeCategory,
+    setActiveCategory,
+    getProjectDetail: (id: string) => repository.getById(id),
+  };
 }

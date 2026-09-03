@@ -1,37 +1,52 @@
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { useDisclosure } from "../../hooks/useDisclosure";
+import { ArrowUpRight, PanelLeft, X } from "lucide-react";
+import { useSidebar } from "@/components/ui/sidebar";
+import { contactLink, navigationLinks } from "../../data/navigationData";
 
 export function Navbar() {
-  const menu = useDisclosure();
-  const closeMenu = () => menu.close();
+  const { toggleSidebar, open, openMobile, isMobile } = useSidebar();
+  const isOpen = isMobile ? openMobile : open;
 
   return (
-    <nav className="topbar">
-      <a className="brand" href="#top" aria-label="Pablo Dev inicio">
-        <img src="main-logo.png" alt="Pablo Dev" />
-      </a>
-      <div className={`nav-links ${menu.isOpen ? "is-open" : ""}`}>
-        <a href="#work" onClick={closeMenu}>
-          Selected work
-        </a>
-        <a href="#about" onClick={closeMenu}>
-          About
-        </a>
-        <a
-          className="nav-contact"
-          href="mailto:hello@pablo.dev"
-          onClick={closeMenu}
+    <header className="topbar">
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={toggleSidebar}
+          className="sidebar-toggle-btn"
+          aria-label={isOpen ? "Cerrar menú lateral" : "Abrir menú lateral"}
+          title={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
-          Let's talk <ArrowUpRight size={15} />
+          {isOpen ? (
+            <X className="size-4 text-accent-lime" />
+          ) : (
+            <PanelLeft className="size-4 text-accent-lime" />
+          )}
+          <span className="sidebar-toggle-label">Menu</span>
+        </button>
+
+        <a className="brand" href="#top" aria-label="Pablo Dev — Inicio">
+          <img
+            src="/transparent-light.png"
+            alt="Pablo Dev Logo"
+            className="brand-logo-img"
+          />
+          <span>Pablo Dev</span>
         </a>
       </div>
-      <button
-        className="icon-button menu-button"
-        aria-label={menu.isOpen ? "Cerrar menú" : "Abrir menú"}
-        onClick={menu.toggle}
-      >
-        {menu.isOpen ? <X size={20} /> : <Menu size={20} />}
-      </button>
-    </nav>
+
+      <nav className="nav-links" aria-label="Navegación principal">
+        {navigationLinks.map((link) => (
+          <a key={link.href} href={link.href}>
+            {link.label}
+          </a>
+        ))}
+        <a
+          className="nav-contact"
+          href={contactLink.href}
+        >
+          {contactLink.label} <ArrowUpRight size={14} />
+        </a>
+      </nav>
+    </header>
   );
 }
