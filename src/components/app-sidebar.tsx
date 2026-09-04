@@ -4,7 +4,6 @@ import {
   Globe,
   Home,
   Mail,
-  PanelLeft,
   User,
 } from "lucide-react";
 import { contactLink, navigationLinks, siteMetadata, socialLinks } from "@/data/navigationData";
@@ -23,11 +22,12 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarSeparator,
+  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
 
 export function AppSidebar() {
-  const { toggleSidebar, isMobile, setOpenMobile } = useSidebar();
+  const { isMobile, setOpenMobile } = useSidebar();
 
   const handleClose = () => {
     if (isMobile) setOpenMobile(false);
@@ -36,10 +36,10 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       {/* ── Header: logo + toggle trigger ──────────────────────── */}
-      <SidebarHeader className="border-b border-sidebar-border p-0">
+      <SidebarHeader className="border-b border-sidebar-border p-0 overflow-hidden">
         <SidebarMenu>
           <SidebarMenuItem>
-            <div className="flex h-14 items-center justify-between px-2">
+            <div className="relative flex h-14 items-center justify-between px-2 group-data-[collapsible=icon]:justify-center">
               {/* Logo — hidden in icon mode */}
               <div className="flex items-center gap-2.5 group-data-[collapsible=icon]:hidden overflow-hidden">
                 <img
@@ -58,23 +58,15 @@ export function AppSidebar() {
               </div>
 
               {/* Icon-only logo — visible only when collapsed */}
-              <div className="hidden group-data-[collapsible=icon]:flex items-center justify-center w-full">
-                <img
-                  src="/transparent-light.png"
-                  alt="Logo"
-                  className="h-6 w-6 object-contain"
-                />
-              </div>
-
               {/* Toggle button — only visible when expanded */}
-              <button
-                type="button"
-                onClick={toggleSidebar}
-                className="group-data-[collapsible=icon]:hidden flex items-center justify-center size-7 rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors cursor-pointer shrink-0"
+              <SidebarTrigger
+                className="group-data-[collapsible=icon]:hidden size-7 shrink-0 text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground"
                 aria-label="Colapsar barra lateral"
-              >
-                <PanelLeft className="size-4" />
-              </button>
+              />
+              <SidebarTrigger
+                className="hidden group-data-[collapsible=icon]:flex absolute left-1/2 top-1/2 size-8 min-w-8 max-w-8 -translate-x-1/2 -translate-y-1/2 text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground"
+                aria-label="Expandir barra lateral"
+              />
             </div>
           </SidebarMenuItem>
         </SidebarMenu>

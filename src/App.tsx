@@ -8,21 +8,20 @@ import "./App.css";
 
 function App() {
   return (
-    <SidebarProvider defaultOpen={false}>
+    <SidebarProvider defaultOpen>
       <AppSidebar />
       <SidebarInset className="bg-transparent min-h-screen overflow-x-hidden">
-        {/* Mobile-only top bar with trigger */}
-        {/* <header className="mobile-topbar md:hidden"> */}
-        <SidebarTrigger className="mobile-trigger" />
-        {/* <a className="brand" href="#top" aria-label="Pablo Dev — Inicio">
+        <header className="mobile-topbar md:hidden">
+          <SidebarTrigger className="mobile-trigger" aria-label="Abrir menú" />
+          <a className="brand" href="#top" aria-label="Pablo Dev - Inicio">
             <img
               src="/transparent-light.png"
               alt="Pablo Dev Logo"
               className="brand-logo-img"
             />
-            <span>Pablo Dev</span>
-          </a> */}
-        {/* </header> */}
+            <span>{"Pablo Dev"}</span>
+          </a>
+        </header>
 
         <div className="portfolio-shell w-full">
           <main id="main-content">
