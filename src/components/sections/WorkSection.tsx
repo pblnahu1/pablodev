@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ProjectDetail, ProjectSummary } from "../../types/project";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useProjects } from "../../hooks/useProjects";
 import { ProjectGrid } from "../projects/ProjectGrid";
 import { ProjectModal } from "../projects/ProjectModal";
@@ -7,6 +8,7 @@ import { FilterPills } from "../ui/FilterPills";
 import { SectionHeading } from "../ui/SectionHeading";
 
 export function WorkSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
   const { projects, categories, activeCategory, setActiveCategory, getProjectDetail } =
     useProjects();
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null);
@@ -21,7 +23,12 @@ export function WorkSection() {
   const projectCountDetail = `${String(projects.length).padStart(2, "0")} projects`;
 
   return (
-    <section className="work-section" id="work" aria-label="Proyectos seleccionados">
+    <section
+      ref={sectionRef}
+      className="work-section scroll-reveal"
+      id="work"
+      aria-label="Proyectos seleccionados"
+    >
       <SectionHeading label="01 — Proyectos seleccionados" detail={projectCountDetail} />
       <FilterPills
         options={categories}

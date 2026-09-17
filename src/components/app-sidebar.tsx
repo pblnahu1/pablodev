@@ -1,27 +1,18 @@
-import {
-  Briefcase,
-  GitBranch,
-  Globe,
-  Home,
-  Mail,
-  User,
-} from "lucide-react";
 import { contactLink, navigationLinks, siteMetadata, socialLinks } from "@/data/navigationData";
 import { projects } from "@/data/projects";
+import {
+  NavigationSection,
+  ProjectsSection,
+  SocialLinksSection,
+} from "@/components/sidebar/SidebarSections";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuBadge,
-  SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-  SidebarSeparator,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -73,122 +64,13 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarContent className="py-2">
-        {/* Navigation Group */}
-        <SidebarGroup>
-          <SidebarGroupLabel className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            Navegación
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Inicio" size="default">
-                  <a href="#top" onClick={handleClose} className="hover:text-accent-blue">
-                    <Home className="size-4 shrink-0" />
-                    <span>Inicio</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              {navigationLinks.map((item) => (
-                <SidebarMenuItem key={item.href}>
-                  <SidebarMenuButton asChild tooltip={item.label} size="default">
-                    <a href={item.href} onClick={handleClose} className="hover:text-accent-blue">
-                      {item.href === "#work" ? (
-                        <Briefcase className="size-4 shrink-0" />
-                      ) : (
-                        <User className="size-4 shrink-0" />
-                      )}
-                      <span>{item.label}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip={contactLink.label} size="default">
-                  <a
-                    href={contactLink.href}
-                    onClick={handleClose}
-                    className="text-accent-blue hover:opacity-80"
-                  >
-                    <Mail className="size-4 shrink-0" />
-                    <span>{contactLink.label}</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarSeparator className="bg-sidebar-border" />
-
-        {/* Selected Projects */}
-        <SidebarGroup>
-          <SidebarGroupLabel className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            Proyectos
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {projects.map((project) => (
-                <SidebarMenuItem key={project.id}>
-                  <SidebarMenuButton
-                    asChild
-                    tooltip={`${project.title} · ${project.category}`}
-                    size="default"
-                  >
-                    <a
-                      href="#work"
-                      onClick={handleClose}
-                      className="hover:text-accent-blue"
-                    >
-                      <span
-                        className="size-2 rounded-full shrink-0"
-                        style={{ backgroundColor: project.color }}
-                        aria-hidden="true"
-                      />
-                      <span className="truncate">{project.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                  <SidebarMenuBadge className="font-mono text-[9.5px] text-muted-foreground group-data-[collapsible=icon]:hidden">
-                    {project.category}
-                  </SidebarMenuBadge>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarSeparator className="bg-sidebar-border" />
-
-        {/* Connect */}
-        <SidebarGroup>
-          <SidebarGroupLabel className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            Enlaces
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {socialLinks.map((link) => (
-                <SidebarMenuItem key={link.name}>
-                  <SidebarMenuButton asChild tooltip={link.name} size="default">
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-accent-blue"
-                    >
-                      {link.icon === "github" ? (
-                        <GitBranch className="size-4 shrink-0" />
-                      ) : (
-                        <Globe className="size-4 shrink-0" />
-                      )}
-                      <span>{link.name}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <NavigationSection
+          links={navigationLinks}
+          contactLink={contactLink}
+          onNavigate={handleClose}
+        />
+        <ProjectsSection projects={projects} onNavigate={handleClose} />
+        <SocialLinksSection links={socialLinks} />
       </SidebarContent>
 
       {/* Footer: status indicator */}

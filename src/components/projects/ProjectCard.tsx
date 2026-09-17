@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 import type { ProjectSummary } from "../../types/project";
 import { Card, CardContent } from "../ui/card";
 
@@ -9,9 +10,12 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
+  const cardRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <Card
-      className="project-card"
+      ref={cardRef}
+      className="project-card scroll-reveal"
       style={{ "--card-color": project.color } as CSSProperties}
     >
       <CardContent>
