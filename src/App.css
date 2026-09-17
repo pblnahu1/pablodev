@@ -144,6 +144,43 @@ h1 {
   font-weight: 600;
 }
 
+.hero-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 48px;
+  align-items: end;
+}
+
+.hero-signal {
+  display: grid;
+  gap: 12px;
+  padding: 0 0 8px 18px;
+  border-left: 1px solid var(--border-line);
+}
+
+.hero-signal-label,
+.hero-signal-meta {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-signal strong {
+  max-width: 150px;
+  color: var(--text-ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.hero-signal-rule {
+  width: 34px;
+  height: 1px;
+  background: var(--accent-blue);
+}
+
 h1 em {
   color: var(--accent-blue);
   font-style: normal;
@@ -692,6 +729,16 @@ footer a {
    Responsive Breakpoints
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
+  .hero-heading-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .hero-signal {
+    max-width: 320px;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--border-line);
+    border-left: 0;
+  }
   .intro-bottom {
     grid-template-columns: 1fr;
     gap: 36px;

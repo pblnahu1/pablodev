@@ -7,11 +7,19 @@ export function HeroSection() {
         <span className="status-dot" aria-hidden="true" /> {siteMetadata.role}{" "}
         <span className="year">/ {siteMetadata.yearsActive}</span>
       </div>
-      <h1>
-        {siteMetadata.headline.start} <em>{siteMetadata.headline.emphasis}</em>
-        <br />
-        {siteMetadata.headline.middle} <span>{siteMetadata.headline.highlight}</span>
-      </h1>
+      <div className="hero-heading-row">
+        <h1>
+          {siteMetadata.headline.start} <em>{siteMetadata.headline.emphasis}</em>
+          <br />
+          {siteMetadata.headline.middle} <span>{siteMetadata.headline.highlight}</span>
+        </h1>
+        <aside className="hero-signal" aria-label="Estado profesional">
+          <span className="hero-signal-label">Ahora mismo</span>
+          <strong>Diseñando experiencias digitales</strong>
+          <span className="hero-signal-rule" aria-hidden="true" />
+          <span className="hero-signal-meta">React · TypeScript · UI</span>
+        </aside>
+      </div>
       <div className="intro-bottom">
         <div className="intro-summary">
           <p>{siteMetadata.bio}</p>
