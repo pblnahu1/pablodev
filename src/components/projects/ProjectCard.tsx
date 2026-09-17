@@ -28,7 +28,7 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
             <div className="art-overlay" />
             <span className="project-index">{project.index}</span>
             <span className="view-project">
-              View project <ArrowUpRight size={16} />
+              Ver proyecto <ArrowUpRight size={16} />
             </span>
           </div>
           <div className="project-meta">

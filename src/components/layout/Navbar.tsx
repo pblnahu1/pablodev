@@ -17,11 +17,11 @@ export function Navbar() {
           title={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
           {isOpen ? (
-            <X className="size-4 text-accent-lime" />
+            <X className="size-4 text-accent-blue" />
           ) : (
-            <PanelLeft className="size-4 text-accent-lime" />
+            <PanelLeft className="size-4 text-accent-blue" />
           )}
-          <span className="sidebar-toggle-label">Menu</span>
+          <span className="sidebar-toggle-label">Menú</span>
         </button>
 
         <a className="brand" href="#top" aria-label="Pablo Dev — Inicio">

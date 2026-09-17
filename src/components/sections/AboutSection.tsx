@@ -5,7 +5,7 @@ import { SectionHeading } from "../ui/SectionHeading";
 export function AboutSection() {
   return (
     <section className="about-section" id="about" aria-label="Sobre mí">
-      <SectionHeading label="02 — A little about" />
+      <SectionHeading label="02 — Sobre mí" />
       <div className="about-content">
         <h2>
           {siteMetadata.aboutHeadline} <span>{siteMetadata.aboutHighlight}</span>
@@ -13,7 +13,7 @@ export function AboutSection() {
         <div>
           <p>{siteMetadata.aboutDescription}</p>
           <a className="text-link" href={contactLink.href}>
-            More about me <ArrowUpRight size={15} />
+            Ver más <ArrowUpRight size={15} />
           </a>
         </div>
       </div>

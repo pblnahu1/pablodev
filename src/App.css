@@ -47,9 +47,9 @@
 }
 
 .mobile-trigger:hover {
-  border-color: var(--accent-lime) !important;
-  color: var(--accent-lime) !important;
-  background: rgba(217, 249, 157, 0.08) !important;
+  border-color: var(--accent-blue) !important;
+  color: var(--accent-blue) !important;
+  background: rgba(125, 211, 252, 0.08) !important;
 }
 
 .mobile-trigger svg {
@@ -102,7 +102,7 @@ footer a {
 
 .text-link:hover,
 footer a:hover {
-  color: var(--accent-lime);
+  color: var(--accent-blue);
 }
 
 /* --------------------------------------------------------------------------
@@ -113,7 +113,6 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid var(--border-line);
   padding: 90px 0;
 }
 
@@ -128,8 +127,8 @@ footer a:hover {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent-lime);
-  box-shadow: 0 0 12px var(--accent-lime);
+  background: var(--accent-blue);
+  box-shadow: 0 0 12px var(--accent-blue);
 }
 
 .year {
@@ -146,7 +145,7 @@ h1 {
 }
 
 h1 em {
-  color: var(--accent-lime);
+  color: var(--accent-blue);
   font-style: normal;
 }
 
@@ -191,11 +190,11 @@ h1 span,
 }
 
 .scroll-cue:hover {
-  color: var(--accent-lime);
+  color: var(--accent-blue);
 }
 
 .scroll-cue span {
-  color: var(--accent-lime);
+  color: var(--accent-blue);
   font-size: 16px;
 }
 
@@ -239,8 +238,8 @@ h1 span,
 .filters button.active,
 .filters button:hover {
   color: #0f100f;
-  border-color: var(--accent-lime);
-  background: var(--accent-lime);
+  border-color: var(--accent-blue);
+  background: var(--accent-blue);
   font-weight: 600;
 }
 
@@ -376,10 +375,6 @@ h1 span,
 /* --------------------------------------------------------------------------
    About Section
    -------------------------------------------------------------------------- */
-.about-section {
-  border-top: 1px solid var(--border-line);
-}
-
 .about-content {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
@@ -500,7 +495,7 @@ footer a {
 
 .modal-close:hover {
   background: var(--bg-panel-elevated);
-  border-color: var(--accent-lime);
+  border-color: var(--accent-blue);
 }
 
 .modal-tags {

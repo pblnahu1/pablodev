@@ -21,8 +21,8 @@ export function WorkSection() {
   const projectCountDetail = `${String(projects.length).padStart(2, "0")} projects`;
 
   return (
-    <section className="work-section" id="work" aria-label="Selected Work">
-      <SectionHeading label="01 — Selected work" detail={projectCountDetail} />
+    <section className="work-section" id="work" aria-label="Proyectos seleccionados">
+      <SectionHeading label="01 — Proyectos seleccionados" detail={projectCountDetail} />
       <FilterPills
         options={categories}
         activeOption={activeCategory}

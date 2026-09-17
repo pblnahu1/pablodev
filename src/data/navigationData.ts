@@ -1,36 +1,36 @@
 import type { NavigationItem, SocialLink } from '../types/project';
 
 export const navigationLinks: NavigationItem[] = [
-  { label: 'Selected work', href: '#work' },
-  { label: 'About', href: '#about' },
+  { label: 'Proyectos', href: '#work' },
+  { label: 'Sobre Mí', href: '#about' },
 ];
 
 export const contactLink: NavigationItem = {
-  label: "Let's talk",
-  href: 'mailto:hello@pablo.dev',
+  label: "Hablemos",
+  href: 'mailto:torrezpablo25@gmail.com',
   isExternal: true,
 };
 
 export const socialLinks: SocialLink[] = [
-  { name: 'GitHub', href: 'https://github.com', icon: 'github' },
+  { name: 'GitHub', href: 'https://github.com/pblnahu1', icon: 'github' },
   { name: 'Personal Web', href: 'https://pablo.dev', icon: 'globe' },
 ];
 
 export const siteMetadata = {
   name: 'Pablo Dev',
-  role: 'Independent designer & developer',
-  yearsActive: '2024—now',
+  role: 'Software Developer & Estudiante de Análisis de Sistemas',
+  yearsActive: '2026',
   headline: {
-    start: 'Ideas with',
-    emphasis: 'character.',
-    middle: 'Products with',
-    highlight: 'purpose.',
+    start: 'Bienvenidos a',
+    emphasis: 'mi portfolio.',
+    middle: 'Aplicaciones de',
+    highlight: 'calidad.',
   },
-  bio: 'I build distinctive digital experiences for people and teams who care about the details.',
-  aboutHeadline: 'Designing for the',
-  aboutHighlight: 'in-between.',
+  bio: 'Construyo productos digitales claros, funcionales y pensados para las personas.',
+  aboutHeadline: 'Un poco',
+  aboutHighlight: 'sobre mí',
   aboutDescription:
-    "I'm Pablo, a multidisciplinary designer and developer based in Madrid. I work across brand, product, and code to make digital things feel a little more human.",
-  copyrightYear: '2024',
-  availabilityStatus: 'Available for selected projects',
+    "Soy un desarrollador de software y estudiante de Análisis de Sistemas. Me apasiona crear soluciones digitales que sean funcionales y estéticamente agradables.",
+  copyrightYear: '2026',
+  availabilityStatus: 'Disponible para nuevas oportunidades',
 };

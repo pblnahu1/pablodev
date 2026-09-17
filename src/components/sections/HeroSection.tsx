@@ -15,7 +15,7 @@ export function HeroSection() {
       <div className="intro-bottom">
         <p>{siteMetadata.bio}</p>
         <a className="scroll-cue" href="#work">
-          Scroll to explore <span>↓</span>
+          Explorar <span>↓</span>
         </a>
       </div>
     </section>

@@ -52,7 +52,7 @@ export function AppSidebar() {
                     {siteMetadata.name}
                   </span>
                   <span className="font-mono text-[9.5px] text-muted-foreground uppercase tracking-wider">
-                    Portfolio
+                    Portafolio
                   </span>
                 </div>
               </div>
@@ -76,13 +76,13 @@ export function AppSidebar() {
         {/* Navigation Group */}
         <SidebarGroup>
           <SidebarGroupLabel className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            Nav
+            Navegación
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild tooltip="Inicio" size="default">
-                  <a href="#top" onClick={handleClose} className="hover:text-accent-lime">
+                  <a href="#top" onClick={handleClose} className="hover:text-accent-blue">
                     <Home className="size-4 shrink-0" />
                     <span>Inicio</span>
                   </a>
@@ -92,7 +92,7 @@ export function AppSidebar() {
               {navigationLinks.map((item) => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton asChild tooltip={item.label} size="default">
-                    <a href={item.href} onClick={handleClose} className="hover:text-accent-lime">
+                    <a href={item.href} onClick={handleClose} className="hover:text-accent-blue">
                       {item.href === "#work" ? (
                         <Briefcase className="size-4 shrink-0" />
                       ) : (
@@ -109,7 +109,7 @@ export function AppSidebar() {
                   <a
                     href={contactLink.href}
                     onClick={handleClose}
-                    className="text-accent-lime hover:opacity-80"
+                    className="text-accent-blue hover:opacity-80"
                   >
                     <Mail className="size-4 shrink-0" />
                     <span>{contactLink.label}</span>
@@ -139,7 +139,7 @@ export function AppSidebar() {
                     <a
                       href="#work"
                       onClick={handleClose}
-                      className="hover:text-accent-lime"
+                      className="hover:text-accent-blue"
                     >
                       <span
                         className="size-2 rounded-full shrink-0"
@@ -163,7 +163,7 @@ export function AppSidebar() {
         {/* Connect */}
         <SidebarGroup>
           <SidebarGroupLabel className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            Links
+            Enlaces
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -174,7 +174,7 @@ export function AppSidebar() {
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:text-accent-lime"
+                      className="hover:text-accent-blue"
                     >
                       {link.icon === "github" ? (
                         <GitBranch className="size-4 shrink-0" />
@@ -195,7 +195,7 @@ export function AppSidebar() {
       <SidebarFooter className="border-t border-sidebar-border p-3">
         <div className="flex items-center gap-2 group-data-[collapsible=icon]:justify-center">
           <span
-            className="size-2 rounded-full bg-accent-lime shrink-0 shadow-[0_0_8px_var(--accent-lime)]"
+            className="size-2 rounded-full bg-accent-blue shrink-0 shadow-[0_0_8px_var(--accent-blue)]"
             title={siteMetadata.availabilityStatus}
           />
           <span className="font-mono text-[10px] text-muted-foreground truncate group-data-[collapsible=icon]:hidden">
